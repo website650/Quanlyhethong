@@ -1,0 +1,494 @@
+/* --- Định nghĩa biến màu (đặt ở đầu file để dễ quản lý) --- */
+:root {
+    --color-dark-blue: #0E3746;       /* Xanh đậm/Đen đậm */
+    --color-light-gray-warm: #EAE8DC; /* Xám nhạt ấm */
+    --color-lighter-gray: #F4F2EC;    /* Xám nhạt hơn/Trắng ngà */
+    --color-red: #BE2623;             /* Đỏ */
+
+    /* Các màu dẫn xuất từ màu chính để có hiệu ứng hover hoặc biến thể */
+    --color-dark-blue-hover: #0A2B35; /* Tối hơn của xanh đậm */
+    --color-red-hover: #A01E1D;       /* Tối hơn của đỏ */
+    --color-light-gray-warm-hover: #D2D0C6; /* Tối hơn của xám nhạt ấm */
+    --color-lighter-gray-hover: #E0DFD8; /* Tối hơn của xám nhạt hơn */
+}
+
+/* Thiết lập chung cho body */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    /* Dùng flexbox để canh giữa toàn bộ nội dung */
+    justify-content: center;
+    /* Canh giữa theo chiều ngang */
+    align-items: center;
+    /* Canh giữa theo chiều dọc */
+    min-height: 100vh;
+    /* Chiều cao tối thiểu bằng chiều cao viewport */
+    background: linear-gradient(to right, var(--color-dark-blue), var(--color-light-gray-warm)); /* Background gradient mới */
+    color: var(--color-dark-blue); /* Màu chữ mặc định là màu xanh đậm */
+}
+
+/* Wrapper để chứa form đăng nhập */
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* Container của form đăng nhập */
+.login-container {
+    background-color: var(--color-lighter-gray); /* Nền trắng ngà cho form */
+    padding: 40px 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Đổ bóng nhẹ */
+    width: 100%;
+    max-width: 400px; /* Chiều rộng tối đa của form */
+    text-align: center;
+    box-sizing: border-box; /* Đảm bảo padding không làm tăng kích thước */
+}
+
+.login-container h2 {
+    margin-bottom: 25px;
+    color: var(--color-dark-blue); /* Màu xanh đậm cho tiêu đề */
+    font-size: 2em;
+}
+
+/* Nhóm form (label + input) */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left; /* Canh trái text trong form group */
+}
+
+.form-group label {
+    display: block; /* Đặt nhãn trên một dòng riêng */
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--color-dark-blue); /* Màu xanh đậm cho nhãn */
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--color-light-gray-warm); /* Viền xám nhạt */
+    border-radius: 5px;
+    box-sizing: border-box; /* Bao gồm padding và border trong chiều rộng */
+    font-size: 1em;
+    transition: border-color 0.3s ease; /* Hiệu ứng chuyển đổi khi hover */
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="password"]:focus {
+    border-color: var(--color-dark-blue); /* Màu viền khi focus là xanh đậm */
+    outline: none; /* Bỏ đường viền focus mặc định */
+    box-shadow: 0 0 5px rgba(14, 55, 70, 0.2); /* Đổ bóng khi focus theo màu xanh đậm */
+}
+
+/* Nút Đăng nhập */
+.btn-login {
+    background-color: var(--color-dark-blue); /* Xanh đậm cho nút login */
+    color: var(--color-lighter-gray); /* Chữ màu sáng */
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 10px;
+}
+
+.btn-login:hover {
+    background-color: var(--color-dark-blue-hover); /* Hover xanh đậm hơn */
+    transform: translateY(-2px); /* Hiệu ứng nhấc nhẹ nút lên */
+}
+
+/* Liên kết Quên mật khẩu và Đăng ký */
+.forgot-password,
+.signup-link {
+    margin-top: 15px;
+    font-size: 0.95em;
+}
+
+.forgot-password a,
+.signup-link a {
+    color: var(--color-dark-blue); /* Xanh đậm cho link */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.forgot-password a:hover,
+.signup-link a:hover {
+    text-decoration: underline;
+    color: var(--color-red); /* Đổi sang màu đỏ khi hover */
+}
+
+/* Responsive cho màn hình nhỏ hơn (ví dụ: điện thoại) */
+@media (max-width: 500px) {
+    .login-container {
+        padding: 30px 20px; /* Giảm padding trên màn hình nhỏ */
+        margin: 20px; /* Thêm margin để không dính sát viền */
+    }
+    
+    .login-container h2 {
+        font-size: 1.8em;
+    }
+    
+    .form-group label,
+    .form-group input,
+    .btn-login {
+        font-size: 0.9em;
+    }
+}
+
+
+/* General container for content */
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* Header and action buttons */
+h1 {
+    text-align: center;
+    color: var(--color-dark-blue); /* Xanh đậm cho tiêu đề chính */
+    margin-bottom: 30px;
+}
+
+.header-actions {
+    display: flex;
+    justify-content: flex-end; /* Canh nút sang phải */
+    margin-bottom: 20px;
+}
+
+/* Responsive Table */
+.table-responsive {
+    overflow-x: auto; /* Cho phép cuộn ngang nếu bảng quá rộng */
+    -webkit-overflow-scrolling: touch; /* Hiệu ứng cuộn mượt trên thiết bị cảm ứng */
+    border: 1px solid var(--color-light-gray-warm); /* Viền bảng xám nhạt */
+    border-radius: 8px; /* Bo góc nhẹ */
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse; /* Gộp các đường viền bảng */
+    margin: 0;
+    background-color: var(--color-lighter-gray); /* Nền bảng là trắng ngà */
+}
+
+.data-table th,
+.data-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--color-light-gray-warm-hover); /* Viền ngăn cách hàng xám nhạt tối hơn */
+}
+
+.data-table th {
+    background-color: var(--color-dark-blue); /* Nền header bảng là xanh đậm */
+    color: var(--color-lighter-gray); /* Chữ header là trắng ngà */
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+.data-table tbody tr:nth-child(even) {
+    background-color: var(--color-lighter-gray); /* Màu nền xen kẽ cho các hàng (chủ yếu là trắng ngà) */
+}
+
+.data-table tbody tr:nth-child(odd) { /* Thêm màu cho hàng lẻ để tạo hiệu ứng xen kẽ rõ hơn */
+    background-color: var(--color-light-gray-warm); /* Xám nhạt ấm */
+}
+
+.data-table tbody tr:hover {
+    background-color: var(--color-lighter-gray-hover); /* Hiệu ứng hover cho hàng */
+}
+
+/* Basic Button Styles (dùng cho cả login và các trang khác) */
+.btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none; /* Cho thẻ <a> trông như nút */
+    display: inline-block; /* Để padding và margin hoạt động với <a> */
+    text-align: center;
+    line-height: normal; /* Đảm bảo text không bị lệch */
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+/* Các nút theo màu mới */
+
+/* Nút chính (ví dụ: Thêm Sinh Viên) */
+.btn-primary {
+    background-color: var(--color-dark-blue); /* Xanh đậm */
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-dark-blue-hover);
+}
+
+/* Nút thông tin (ví dụ: chi tiết, xem) */
+.btn-info {
+    background-color: var(--color-dark-blue); /* Xanh đậm */
+    color: white;
+}
+
+.btn-info:hover {
+    background-color: var(--color-dark-blue-hover);
+}
+
+/* Nút cảnh báo (ví dụ: Sửa) */
+.btn-warning {
+    background-color: var(--color-light-gray-warm); /* Xám nhạt ấm */
+    color: var(--color-dark-blue); /* Chữ xanh đậm */
+}
+
+.btn-warning:hover {
+    background-color: var(--color-light-gray-warm-hover);
+}
+
+/* Nút nguy hiểm (ví dụ: Xóa) */
+.btn-danger {
+    background-color: var(--color-red); /* Đỏ */
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: var(--color-red-hover);
+}
+
+/* Nút thành công (ví dụ: Điểm Danh Lớp này) */
+.btn-success {
+    background-color: var(--color-light-gray-warm); /* Xám nhạt ấm */
+    color: var(--color-dark-blue); /* Chữ xanh đậm */
+}
+
+.btn-success:hover {
+    background-color: var(--color-light-gray-warm-hover);
+}
+
+
+.btn-sm {
+    padding: 6px 10px; /* Nút kích thước nhỏ */
+    font-size: 0.8em;
+}
+
+
+/* Media Queries cho Responsive (cho cả login và classes) */
+@media (max-width: 768px) {
+    .container {
+        margin: 20px auto;
+        padding: 0 15px;
+    }
+    
+    .data-table th,
+    .data-table td {
+        padding: 10px; /* Giảm padding trên màn hình nhỏ */
+        font-size: 0.9em;
+    }
+    
+    .btn {
+        padding: 8px 12px;
+        font-size: 0.85em;
+    }
+    
+    .btn-sm {
+        padding: 5px 8px;
+        font-size: 0.75em;
+    }
+}
+
+
+/* Thêm vào style.css nếu muốn định nghĩa riêng cho nút quay lại */
+.btn-back {
+    background-color: transparent; /* Nút trong suốt */
+    color: var(--color-dark-blue); /* Chữ xanh đậm */
+    margin-bottom: 20px;
+    padding: 8px 15px;
+    font-size: 0.9em;
+    border: none;
+    text-decoration: none;
+    display: inline-flex; /* Để icon và text canh giữa */
+    align-items: center;
+    gap: 5px; /* Khoảng cách giữa icon và text */
+}
+
+.btn-back:hover {
+    color: var(--color-red); /* Đổi màu khi hover */
+    text-decoration: underline;
+}
+
+
+/* Phần này định nghĩa chung cho cột trạng thái */
+.attendance-status-col {
+    width: 150px; /* Điều chỉnh chiều rộng cột trạng thái */
+}
+
+/* Các style này chỉ dành cho SELECT. Nếu bạn đã bỏ SELECT trong HTML, có thể xóa */
+.attendance-select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--color-light-gray-warm); /* Viền xám nhạt */
+    border-radius: 4px;
+    font-size: 0.9em;
+    color: var(--color-dark-blue);
+    background-color: var(--color-lighter-gray);
+}
+
+.attendance-note {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--color-light-gray-warm); /* Viền xám nhạt */
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 0.9em;
+    color: var(--color-dark-blue);
+    background-color: var(--color-lighter-gray);
+}
+
+.action-buttons {
+    text-align: right; /* Canh nút lưu sang phải */
+    margin-top: 30px;
+}
+
+/* responsive cho bảng điểm danh */
+@media (max-width: 600px) {
+    .attendance-status-col {
+        width: 120px;
+    }
+}
+
+
+/* Styles cho nhóm nút trạng thái điểm danh */
+.status-buttons {
+    display: flex;
+    gap: 5px; /* Khoảng cách giữa các nút */
+    flex-wrap: wrap; /* Cho phép xuống dòng trên màn hình nhỏ */
+    justify-content: center;
+}
+
+.status-btn {
+    padding: 8px 12px;
+    border: 1px solid var(--color-light-gray-warm); /* Viền xám nhạt */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.85em;
+    transition: all 0.2s ease;
+    white-space: nowrap; /* Không cho text xuống dòng */
+    flex-grow: 1; /* Cho phép nút giãn nở để lấp đầy không gian */
+    text-align: center;
+}
+
+/* Màu sắc cho các trạng thái */
+.status-btn.present {
+    background-color: var(--color-lighter-gray); /* Nền trắng ngà */
+    color: var(--color-dark-blue); /* Chữ xanh đậm */
+    border-color: var(--color-dark-blue); /* Viền xanh đậm */
+}
+
+.status-btn.absent {
+    background-color: var(--color-lighter-gray); /* Nền trắng ngà */
+    color: var(--color-red); /* Chữ đỏ */
+    border-color: var(--color-red); /* Viền đỏ */
+}
+
+.status-btn.late {
+    background-color: var(--color-lighter-gray); /* Nền trắng ngà */
+    color: var(--color-dark-blue); /* Chữ xanh đậm (hoặc đỏ nếu bạn muốn) */
+    border-color: var(--color-dark-blue); /* Viền xanh đậm */
+}
+
+/* Hiệu ứng hover cho nút */
+.status-btn:hover {
+    opacity: 0.8;
+    transform: translateY(-1px);
+}
+
+/* Style cho nút đang được chọn (active) */
+.status-btn.active {
+    font-weight: bold;
+    box-shadow: 0 0 5px rgba(14, 55, 70, 0.3); /* Bóng theo màu xanh đậm */
+    transform: translateY(-1px);
+}
+
+/* Màu nền và chữ khi nút active */
+.status-btn.present.active {
+    background-color: var(--color-dark-blue); /* Nền xanh đậm khi active */
+    color: white;
+}
+
+.status-btn.absent.active {
+    background-color: var(--color-red); /* Nền đỏ khi active */
+    color: white;
+}
+
+.status-btn.late.active {
+    background-color: var(--color-dark-blue); /* Nền xanh đậm khi active */
+    color: white;
+}
+
+/* Đảm bảo cột trạng thái căn chỉnh đúng */
+.attendance-status-col {
+    text-align: center; /* Canh giữa nội dung trong ô */
+    vertical-align: middle; /* Canh giữa theo chiều dọc nếu nội dung nhiều dòng */
+}
+
+/* Điều chỉnh lại chiều rộng cột trạng thái nếu cần */
+@media (min-width: 768px) {
+    .attendance-status-col {
+        width: 200px; /* Chiều rộng rộng hơn để chứa 3 nút */
+    }
+}
+
+@media (max-width: 767px) {
+    .attendance-status-col {
+        width: 150px; /* Giảm chiều rộng trên màn hình nhỏ hơn */
+    }
+    
+    .status-buttons {
+        flex-direction: column; /* Các nút xếp chồng lên nhau trên màn hình nhỏ */
+    }
+    
+    .status-btn {
+        margin-bottom: 5px; /* Khoảng cách giữa các nút khi xếp chồng */
+        flex-grow: unset; /* Bỏ giãn nở khi xếp chồng */
+    }
+}
+
+
+/* Styles cho thông báo xác nhận điểm danh */
+.attendance-confirmation {
+    font-size: 0.8em; /* Kích thước chữ nhỏ hơn */
+    font-weight: normal;
+    margin-left: 5px; /* Khoảng cách với tên sinh viên */
+    display: inline-block; /* Đảm bảo nó nằm cạnh tên */
+    vertical-align: middle; /* Căn chỉnh theo chiều dọc */
+    opacity: 0.9; /* Hơi mờ đi một chút */
+    color: var(--color-dark-blue); /* Màu chữ chung cho thông báo */
+}
+
+/* Màu chữ cho thông báo xác nhận theo trạng thái */
+.status-present-text {
+    color: var(--color-dark-blue); /* Màu xanh đậm */
+}
+
+.status-absent-text {
+    color: var(--color-red); /* Màu đỏ */
+}
+
+.status-late-text {
+    color: var(--color-dark-blue); /* Màu xanh đậm */
+}

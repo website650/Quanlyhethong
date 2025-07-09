@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="vi">
+	
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Điểm Danh Lớp</title>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	
+	<body>
+		<div class="container">
+			<a href="class_detail.html" class="btn btn-back">&larr; Quay lại Chi tiết Lớp</a>
+			
+			<h1 id="attendance-title">Điểm Danh Lớp [Tên Lớp] - Ngày [Ngày Hiện Tại]</h1>
+			
+			<div class="table-responsive">
+				<table class="data-table">
+					<thead>
+						<tr>
+							<th>Mã SV</th>
+							<th>Họ và Tên</th>
+							<th class="attendance-status-col">Trạng thái</th>
+							<th>Ghi chú</th>
+						</tr>
+					</thead>
+					<tbody id="attendance-list-body">
+						<tr>
+							<td>SV001</td>
+							<td>Phạm Duy Anh</td>
+							<td class="attendance-status-col">
+								<div class="status-buttons" data-student-id="SV001">
+									<button class="status-btn present active" data-status="present">Có mặt</button>
+									<button class="status-btn absent" data-status="absent">Vắng</button>
+									<button class="status-btn late" data-status="late">Đi muộn</button>
+								</div>
+							</td>
+							<td><input type="text" class="attendance-note" placeholder="Ghi chú"></td>
+						</tr>
+						<tr>
+							<td>SV002</td>
+							<td>Nguyễn Thị Bình</td>
+							<td class="attendance-status-col">
+								<div class="status-buttons" data-student-id="SV002">
+									<button class="status-btn present" data-status="present">Có mặt</button>
+									<button class="status-btn absent" data-status="absent">Vắng</button>
+									<button class="status-btn late" data-status="late">Đi muộn</button>
+								</div>
+							</td>
+							<td><input type="text" class="attendance-note" placeholder="Ghi chú"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			
+			<div class="action-buttons">
+				<button class="btn btn-primary" id="save-attendance-btn">Lưu Điểm Danh</button>
+			</div>
+		</div>
+		
+		<script src="attendance.js"></script>
+	</body>
+	
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="vi">
+	
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Danh sách Sinh viên Lớp</title>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	
+	<body>
+		<div class="container">
+			<a href="classes.html" class="btn btn-back">&larr; Quay lại Danh sách Lớp</a>
+			
+			<h1 id="class-title">Danh sách Sinh viên Lớp [Tên Lớp]</h1>
+			
+			<div class="header-actions">
+				<button class="btn btn-primary" onclick="alert('Chức năng thêm sinh viên sẽ được phát triển sau!')">
+					Thêm Sinh Viên
+				</button>
+				<a id="attendance-link" class="btn btn-success">
+					Điểm Danh Lớp này
+				</a>
+				
+				
+			</div>
+			
+			<div class="table-responsive">
+				<table class="data-table">
+					<thead>
+						<tr>
+							<th>Mã SV</th>
+							<th>Họ và Tên</th>
+							<th>Ngày sinh</th>
+							<th>Giới tính</th>
+							<th>Hành động</th>
+						</tr>
+					</thead>
+					<tbody id="student-list-body">
+						<tr>
+							<td>SV001</td>
+							<td>Phạm Duy Anh</td>
+							<td>01/01/2002</td>
+							<td>Nam</td>
+							<td>
+								<button class="btn btn-sm btn-warning">Sửa</button>
+								<button class="btn btn-sm btn-danger">Xóa</button>
+							</td>
+						</tr>
+						<tr>
+							<td>SV002</td>
+							<td>Nguyễn Thị Bình</td>
+							<td>15/03/2002</td>
+							<td>Nữ</td>
+							<td>
+								<button class="btn btn-sm btn-warning">Sửa</button>
+								<button class="btn btn-sm btn-danger">Xóa</button>
+							</td>
+						</tr>
+						<tr>
+							<td>SV003</td>
+							<td>Trần Văn Chung</td>
+							<td>20/07/2002</td>
+							<td>Nam</td>
+							<td>
+								<button class="btn btn-sm btn-warning">Sửa</button>
+								<button class="btn btn-sm btn-danger">Xóa</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		
+		<script src="class_detail.js"></script>
+	</body>
+	
+</html>
